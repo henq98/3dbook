@@ -9,6 +9,8 @@
 \usepackage[english=british]{csquotes}  % English quotes
 
 \usepackage{tablefootnote}
+\usepackage{graphicx}
+\usepackage{eso-pic}
 
 % Load packages for testing
 \usepackage{blindtext}
@@ -176,7 +178,19 @@
 % If twoside=false, \uppertitleback and \lowertitleback are not printed
 % To overcome this issue, we set twoside=semi just before printing the title pages, and set it back to false just after the title pages
 \KOMAoptions{twoside=semi}
+
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[
+      width=\paperwidth,
+      height=\paperheight,
+      keepaspectratio
+    ]{front-back/cover.pdf}%
+  }%
+}
+
 \maketitle
+
 \KOMAoptions{twoside=false}
 
 %----------------------------------------------------------------------------------------
